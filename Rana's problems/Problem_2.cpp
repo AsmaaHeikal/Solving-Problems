@@ -14,6 +14,7 @@ int main(){
         cout << str << " ";
     }
     cout << endl;
+
     ans = split("10,20,30", ",");
     for(string str: ans){
         cout << str << " ";
@@ -23,9 +24,11 @@ int main(){
 
 vector<string> split(string target, string delimiter){
     vector <string> ans;
+
     target += delimiter;
     size_t l =0;
     size_t r = target.find(delimiter);
+
     while(r != string::npos){
         ans.push_back(target.substr(l, r-l));
         l= r+1;
