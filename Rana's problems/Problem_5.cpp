@@ -37,6 +37,7 @@ int main(){
     v[4] = {4, 2};
     v[5] = {5, 4};
 
+
     cout << FormChain(v) << endl;
     if(FormChain(v)){
         for(domino d: chain){
