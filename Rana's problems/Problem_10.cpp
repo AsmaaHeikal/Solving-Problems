@@ -8,7 +8,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
 int main(){
+    map <string, int> existWords;
     cout << "\twelcome to the Phishing Scanner!\n";
     ifstream file;
     file.open("DataBase.txt");
@@ -31,8 +33,15 @@ int main(){
         string str;
         msg >> str;
         score += mp[str];
+        if(mp[str] != 0){
+            existWords[str] += mp[str];
+        }
     }
    cout << "The score of this message = "<<  score << " point"<< endl;
+    cout << "\n____________________________________________\n";
+    for(const auto ptr : existWords){
+        cout << "( "<< ptr.first <<  " ) "<< "its count = " << ptr.second/ mp[ptr.first] << " with score = " << ptr.second << endl;
+    }
     msg.close();
     file.close();
 }
