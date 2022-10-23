@@ -9,13 +9,13 @@ struct Player{
 bool compare_player(const Player &player1, const Player &player2)
 {
     if(player2.score < player1.score)
-        return 1;
+        return true;
     if(player2.score == player1.score)
     {
-        if(player2.name < player1.name)
-            return 1;
+        if(player2.name > player1.name)
+            return true;
     }
-    return 0;
+    return false;
 }
 
 const int NUM_PLAYERS = 10;
@@ -73,7 +73,7 @@ void getPlayerHighestScore(){
 }
 
 int main(){
-    int option;
+    string option;
     cout << "Menu:" << endl;
     cout << "(1) Add a new player and score." << endl;
     cout << "(2) Print the top 10 names and scores to the screen sorted by score with the highest score first." << endl;
@@ -82,22 +82,22 @@ int main(){
     cout << "Select an option from the menu above: " << endl;
     while(true){
         cin >> option;
-        if (option == 1){
+        if (option == "1"){
             addNewPlayer();
         }
-        else if (option == 2){
+        else if (option == "2"){
             printTopTenNames();
         }
-        else if (option == 3){
+        else if (option == "3"){
             getPlayerHighestScore();
         }
-        else if (option == 4){
+        else if (option == "4"){
             break;
         }
         else{
-            cout << "Invalid option ";
-            continue;
+            cout<<"Invalid option"<<endl;
         }
         cout << "Please enter another option: " << endl;
+        }
+
     }
-}
